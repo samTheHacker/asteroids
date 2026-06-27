@@ -7,8 +7,8 @@ class Player(CircleShape):
     
     def __init__(self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)
-        self.rotation = 0
-        self.shot_cooldown = 0
+        self.rotation = 0.0
+        self.shot_cooldown = 0.0
         
     # in the Player class
     def triangle(self) -> list[pygame.Vector2]:
@@ -51,7 +51,7 @@ class Player(CircleShape):
         
     def shoot(self):
         if self.shot_cooldown > 0:
-           pass
+           return
         else:
             self.shot_cooldown = PLAYER_SHOOT_COOLDOWN_SECONDS
             shoot = Shot(self.position.x, self.position.y)
